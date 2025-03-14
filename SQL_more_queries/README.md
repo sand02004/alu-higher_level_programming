@@ -1,1 +1,1 @@
-GLORY
+GLORaY
