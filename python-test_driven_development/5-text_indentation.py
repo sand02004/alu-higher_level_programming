@@ -66,7 +66,7 @@ If ``size`` is less than zero, a ValueError is raised.
 Note that type-checking occurs before value-checking.
 
 ::
-
+# Temporary change to force git to see modification
     >>> print_square(-7.5)
     Traceback (most recent call last):
     TypeError: size must be an integer
