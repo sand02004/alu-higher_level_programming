@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """Defines a function that prints a square with the # character"""
-
+# Temporary change to force git to see modification
 
 def print_square(size):
     """Prints a square with the # character.
