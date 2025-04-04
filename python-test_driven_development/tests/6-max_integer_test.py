@@ -6,7 +6,6 @@ import unittest
 
 max_integer = __import__('6-max_integer').max_integer
 
-# Temporary change to force git to see modification
 class TestMaxInteger(unittest.TestCase):
     """"Function documentation"""
 
