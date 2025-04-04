@@ -1,80 +1,18 @@
-::
+#!/usr/bin/python3
+"""Defines a function that prints a square with the # character"""
 
-    >>> print_square = __import__('4-print_square').print_square
-    >>> print_square(1)
-    #
 
-::
-
-    >>> print_square(4)
-    ####
-    ####
-    ####
-    ####
-
-::
-
-    >>> print_square(10)
-    ##########
-    ##########
-    ##########
-    ##########
-    ##########
-    ##########
-    ##########
-    ##########
-    ##########
-    ##########
-
-If ``size`` is zero, the function prints nothing.
-
-::
-
-    >>> print_square(0)
-
-Invalid Sizes
-=============
-
-The parameter ``size`` must be an integer. Otherwise, a TypeError is raised.
-
-::
-
-    >>> print_square("not an int")
-    Traceback (most recent call last):
-    TypeError: size must be an integer
-
-::
-
-    >>> print_square(5.5)
-    Traceback (most recent call last):
-    TypeError: size must be an integer
-
-::
-
-    >>> print_square(None)
-    Traceback (most recent call last):
-    TypeError: size must be an integer
-
-If ``size`` is less than zero, a ValueError is raised.
-
-::
-
-    >>> print_square(-7)
-    Traceback (most recent call last):
-    ValueError: size must be >= 0
-
-Note that type-checking occurs before value-checking.
-
-::
-
-    >>> print_square(-7.5)
-    Traceback (most recent call last):
-    TypeError: size must be an integer
-
-At least one argument must be provided.
-
-::
-
-    >>> print_square()
-    Traceback (most recent call last):
-    TypeError: print_square() missing 1 required positional argument: 'size'
+def print_square(size):
+    """Prints a square with the # character.
+    :param: size
+    :type size: int
+    :raises: TypeError if size is not an integer
+    :raises: ValueError if size is less than zero
+    """
+    if not isinstance(size, int):
+        raise TypeError("size must be an integer")
+    if size < 0:
+        raise ValueError("size must be >= 0")
+    for k in range(size):
+        [print("#", end="") for k in range(size)]
+        print("")
