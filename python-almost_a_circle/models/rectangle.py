@@ -62,7 +62,7 @@ class Rectangle(Base):
     def y(self):
         """ y getter """
         return self.__y
-
+# adding validation of all setter methods and instantiation
     @y.setter
     def y(self, value):
         """ y setter """
