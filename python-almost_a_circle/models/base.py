@@ -4,7 +4,7 @@ import json
 import csv
 import os.path
 
-#Update the class
+
 class Base:
     """ Class Base """
     __nb_objects = 0
@@ -30,11 +30,9 @@ class Base:
         filename = "{}.json".format(cls.__name__)
         list_dic = []
 
-        if not list_objs:
-            pass
-        else:
-            for i in range(len(list_objs)):
-                list_dic.append(list_objs[i].to_dictionary())
+        if list_objs:
+            for obj in list_objs:
+                list_dic.append(obj.to_dictionary())
 
         lists = cls.to_json_string(list_dic)
 
@@ -63,7 +61,7 @@ class Base:
         """ Returns a list of instances """
         filename = "{}.json".format(cls.__name__)
 
-        if os.path.exists(filename) is False:
+        if not os.path.exists(filename):
             return []
 
         with open(filename, 'r') as f:
@@ -72,8 +70,8 @@ class Base:
         list_cls = cls.from_json_string(list_str)
         list_ins = []
 
-        for index in range(len(list_cls)):
-            list_ins.append(cls.create(**list_cls[index]))
+        for obj in list_cls:
+            list_ins.append(cls.create(**obj))
 
         return list_ins
 
@@ -91,12 +89,10 @@ class Base:
 
         matrix = []
 
-        if not list_objs:
-            pass
-        else:
+        if list_objs:
             for obj in list_objs:
-                for kv in range(len(list_keys)):
-                    list_dic[kv] = obj.to_dictionary()[list_keys[kv]]
+                for i in range(len(list_keys)):
+                    list_dic[i] = obj.to_dictionary()[list_keys[i]]
                 matrix.append(list_dic[:])
 
         with open(filename, 'w') as writeFile:
@@ -108,7 +104,7 @@ class Base:
         """ Method that loads a CSV file """
         filename = "{}.csv".format(cls.__name__)
 
-        if os.path.exists(filename) is False:
+        if not os.path.exists(filename):
             return []
 
         with open(filename, 'r') as readFile:
@@ -130,7 +126,7 @@ class Base:
 
         list_ins = []
 
-        for index in range(len(matrix)):
-            list_ins.append(cls.create(**matrix[index]))
+        for obj in matrix:
+            list_ins.append(cls.create(**obj))
 
         return list_ins
