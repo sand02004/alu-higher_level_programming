@@ -3,7 +3,7 @@
 inheritance of class Base
 """
 from models.base import Base
-
+#Updating the class
 
 class Rectangle(Base):
     """ Class Rectangle """
