@@ -62,7 +62,7 @@ class Rectangle(Base):
     def y(self):
         """ y getter """
         return self.__y
-# adding validation of all setter methods and instantiation
+
     @y.setter
     def y(self, value):
         """ y setter """
@@ -105,7 +105,7 @@ class Rectangle(Base):
                 setattr(self, key, value)
 
     def to_dictionary(self):
-        """ method that returs a dictionary with properties """
+        """ method that returns a dictionary with properties """
         list_atr = ['id', 'width', 'height', 'x', 'y']
         dict_res = {}
 
