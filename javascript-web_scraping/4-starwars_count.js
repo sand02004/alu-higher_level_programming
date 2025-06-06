@@ -8,7 +8,7 @@ if (!apiUrl) {
   process.exit(1);
 }
 
-request(apiUrl, (error, response, body) => {
+request('https://swapi-api.alx-tools.com/api/people/18/', (error, response, body) => {
   if (error) {
     console.error(error);
     return;
@@ -17,19 +17,9 @@ request(apiUrl, (error, response, body) => {
     console.log('Failed to fetch data');
     return;
   }
-
   try {
     const data = JSON.parse(body);
-    const films = data.results;
-
-    const wedgeUrl = 'https://swapi-api.alx-tools.com/api/people/18/';
-
-    const count = films.reduce((acc, film) => {
-      return film.characters.includes(wedgeUrl) ? acc + 1 : acc;
-    }, 0);
-
-    console.log(count);
-
+    console.log(data.films.length);
   } catch (e) {
     console.error('Error parsing JSON:', e.message);
   }
