@@ -22,15 +22,10 @@ request(apiUrl, (error, response, body) => {
     const data = JSON.parse(body);
     const films = data.results;
 
-    // Character URL to match for Wedge Antilles (ID 18)
     const wedgeUrl = 'https://swapi-api.alx-tools.com/api/people/18/';
 
-    // Count films where Wedge Antilles appears
     const count = films.reduce((acc, film) => {
-      if (film.characters.includes(wedgeUrl)) {
-        return acc + 1;
-      }
-      return acc;
+      return film.characters.includes(wedgeUrl) ? acc + 1 : acc;
     }, 0);
 
     console.log(count);
